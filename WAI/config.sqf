@@ -15,9 +15,9 @@ if(isServer) then {
 
 		ai_clear_body 				= false;		// instantly clear bodies
 		ai_clean_dead 				= true;			// clear bodies after certain amount of time
-		ai_cleanup_time 			= 7200;			// time to clear bodies in seconds
+		ai_cleanup_time 			= 10200;			// time to clear bodies in seconds
 		ai_clean_roadkill			= false; 		// clean bodies that are roadkills
-		ai_roadkill_damageweapon	= 0;			// percentage of chance a roadkill will destroy weapon AI is carrying
+		ai_roadkill_damageweapon	= 50;			// percentage of chance a roadkill will destroy weapon AI is carrying
 
 		ai_bandit_combatmode		= "RED";		// combatmode of bandit AI
 		ai_bandit_behaviour			= "COMBAT";		// behaviour of bandit AI
@@ -112,16 +112,16 @@ if(isServer) then {
 
 		
 		wai_mission_timer			= [30,900];							// time between missions 5-15 minutes
-		wai_mission_timeout			= [900,1800]; 						// time each missions takes to despawn if inactive 15-30 minutes
+		wai_mission_timeout			= [1800,3800]; 						// time each missions takes to despawn if inactive 15-30 minutes
 		wai_timeout_distance		= 1000;								// if a player is this close to a mission then it won't time-out
 		
 		wai_clean_mission			= true;								// clean all mission buildings after a certain period
-		wai_clean_mission_time		= 1800;								// time after a mission is complete to clean mission buildings
+		wai_clean_mission_time		= 10800;								// time after a mission is complete to clean mission buildings
 
 		wai_mission_fuel			= [5,60];							// fuel inside mission spawned vehicles [min%,max%]
 		wai_vehicle_damage			= [20,70];							// damages to spawn vehicles with [min%,max%]
 		wai_keep_vehicles			= true;								// save vehicles to database and keep them after restart
-		wai_linux_server			= false;							// false = Windows (HiveExt.dll)		true = Linux Server (writer.pl)		has no effect when "wai_keep_vehicles = false;"
+		wai_linux_server			= true;							// false = Windows (HiveExt.dll)		true = Linux Server (writer.pl)		has no effect when "wai_keep_vehicles = false;"
 		wai_lock_vehicles			= true;								// lock mission vehicles and add keys to random AI bodies (be careful with ai_clean_dead if this is true
 
 		wai_crates_smoke			= true;								// pop smoke on crate when mission is finished during daytime
@@ -137,12 +137,12 @@ if(isServer) then {
 
 		wai_enable_minefield		= true;								// enable minefields to better defend missions
 		wai_use_launchers			= true;								// add a rocket launcher to each spawned AI group
-		wai_remove_launcher			= true;								// remove rocket launcher from AI on death
+		wai_remove_launcher			= false;								// remove rocket launcher from AI on death
 
 		// Missions
 		wai_radio_announce			= true;								// Setting this to true will announce the missions to those that hold a radio only
 		wai_hero_limit				= 1;								// define how many hero missions can run at once
-		wai_bandit_limit			= 1;								// define how many bandit missions can run at once
+		wai_bandit_limit			= 0;								// define how many bandit missions can run at once
 
 		wai_hero_missions			= [ 								// ["mission filename",% chance of picking this mission],Make sure the chances add up to 100,or it will not be accurate percentages
 										["patrol",10],
